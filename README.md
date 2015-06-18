@@ -7,4 +7,4 @@ PENS Current Working Draft
 
 See this list below for current drafts of PENS:
 
-    https://github.com/ADL-AICC/PENS/releases/
+    [PENS Drafts](https://github.com/ADL-AICC/PENS/releases)
