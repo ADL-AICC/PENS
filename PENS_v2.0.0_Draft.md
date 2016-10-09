@@ -1,4 +1,4 @@
-30 September 2016
+8 October 2016
 PENS v2.0.0 _**DRAFT**_
 
 DOCUMENT No. CMI010
@@ -20,8 +20,7 @@ POINT OF CONTACT:
     Tom King  
     cmi5 PENS Workgroup Lead  
     <mailto:tking@onpointlearning.com>  
-
-PREPARED ON MAC  
+ 
 FILED UNDER: <https://github.com/AICC/PENS_Spec_Current>
 
 ---
@@ -60,21 +59,21 @@ Firebase Cloud Messaging (FCM), and Google Cloud Messaging (GCM).
 
 #### Introduction
 The purpose of this specification is to fill a gap that currently exists
-between the creation of content packages by “content authors” and the
-deployment of those content packages on LMSs by “LMS administrators” where
+between the creation of content packages by "content authors" and the
+deployment of those content packages on LMSs by "LMS administrators" where
 learners may ultimately have access to them. Without a specification that
 addresses this gap, the concept of shared content is incomplete: LMSs do not
 have a means to obtain newly developed, revised or updated content.
 
 This specification aims to provide a mechanism whereby content that is capable
 of being shared can be deployed and thus actually shared in practice. It
-describes a notification scheme that will enable a content creator’s authoring
+describes a notification scheme that will enable a content creator's authoring
 system to announce that a content package is available and ready for transport
 from a location that it will provide.
 
 The acronym for this specification is PENS: Package Exchange Notification
 Services. The PENS data model may be extended in the future to include commands
-in addition to the current “collect” command, which is the first service to be
+in addition to the current `collect` command, which is the first service to be
 defined. Data elements and value spaces can be extended as driven by needs and
 determined in the future by the community of users.
 
@@ -89,28 +88,28 @@ the requestor, other than the specific obligatory confirmation. For
 illustrative purposes, consider a courier service as a conceptual model for
 PENS. Two parties may use the courier service as a means The purpose of this
 specification is to fill a gap that currently exists between the creation of
-content packages by “content authors” and the deployment of those content
-packages on LMSs by “LMS administrators” where learners may ultimately have
+content packages by "content authors" and the deployment of those content
+packages on LMSs by "LMS administrators" where learners may ultimately have
 access to them. Without a specification that addresses this gap, the concept of
 shared content is incomplete: LMSs do not have a means to obtain newly
 developed, revised or updated content.
 
 The purpose of this specification is to fill a gap that currently exists
-between the creation of content packages by “content authors” and the
-deployment of those content packages on LMSs by “LMS administrators” where
+between the creation of content packages by "content authors" and the
+deployment of those content packages on LMSs by "LMS administrators" where
 learners may ultimately have access to them. Without a specification that
 addresses this gap, the concept of shared content is incomplete: LMSs do not
 have a means to obtain newly developed, revised or updated content.
 
 This specification aims to provide a mechanism whereby content that is capable
 of being shared can be deployed and thus actually shared in practice. It
-describes a notification scheme that will enable a content creator’s authoring
+describes a notification scheme that will enable a content creator's authoring
 system to announce that a content package is available and ready for transport
 from a location that it will provide.
 
 The acronym for this specification is PENS: Package Exchange Notification
 Services. The PENS data model may be extended in the future to include commands
-in addition to the current “collect” command, which is the first service to be
+in addition to the current `collect` command, which is the first service to be
 defined. Data elements and value spaces can be extended as driven by needs and
 determined in the future by the community of users.
 
@@ -196,14 +195,14 @@ this specification. For dated references, only the edition cited applies. For
 undated references, the latest edition of the referenced document (including
 any amendments) applies.
 
-RFC 1738, “Uniform Resource Locators (URL),” December 1994.  
-RFC 2368, “The mailto URL scheme,” July 1998.  
-RFC 2396, “Uniform Resource Identifiers (URI): Generic Syntax,” August 1998.  
-RFC 2616, “Hypertext Transfer Protocol -- HTTP/1.1,” June 1999.  
-RFC 2817, “Upgrading to TLS Within HTTP/1.1,” May 2000.  
-RFC 2822, “Internet Message Format,” April 2001.  
-ISO 8601:2000 “Data elements and interchange formats -- Information interchange
--- Representation of dates and times,” Edition 2.
+RFC 1738, "Uniform Resource Locators (URL)," December 1994.  
+RFC 2368, "The mailto URL scheme," July 1998.  
+RFC 2396, "Uniform Resource Identifiers (URI): Generic Syntax," August 1998.  
+RFC 2616, "Hypertext Transfer Protocol -- HTTP/1.1," June 1999.  
+RFC 2817, "Upgrading to TLS Within HTTP/1.1," May 2000.  
+RFC 2822, "Internet Message Format," April 2001.  
+ISO 8601:2000 "Data elements and interchange formats -- Information interchange
+-- Representation of dates and times," Edition 2.
 
 ---
 
@@ -289,8 +288,8 @@ URN:  Uniform Resource Name
 
 Conformance to this specification is discussed in 4.1 – 4.3.
 
-In this specification, “shall” is to be interpreted as a requirement on an
-implementation; “shall not” is to be interpreted as a prohibition.
+In this specification, "shall" is to be interpreted as a requirement on an
+implementation; "shall not" is to be interpreted as a prohibition.
 
 ### 4.1 Sending implementations (Client Systems)
 
@@ -335,25 +334,25 @@ workflow to transfer and import a content package.
 ##### Notification mechanism details: 
 
 * Suggested notification mechanism binding:  HTTP-GET or HTTP-POST of
-name-value pairs (see Appendix A, “Binding of PENS Message to a URI”).
+name-value pairs (see Appendix A, "Binding of PENS Message to a URI").
 
 >NOTE:  
->According to RFC 2616 (June 1999), section 3.2.1, “The HTTP protocol does not
->place any a priori limit on the length of a URI.  Servers MUST be able to
+>According to RFC 2616 (June 1999), section 3.2.1, "The HTTP protocol does not
+>place any a priori limit on the length of a URI. Servers MUST be able to
 >handle the URI of any resource they serve, and SHOULD be able to handle URIs
 >of unbounded length if they provide GET-based forms that could generate such
->URIs.  A server SHOULD return 414 (Request-URI Too Long) status if a URI is
->longer than the server can handle.  (Servers should be cautious about
+>URIs. A server SHOULD return 414 (Request-URI Too Long) status if a URI is
+>longer than the server can handle. (Servers should be cautious about
 >depending on URI lengths above 255 bytes, because some older client or proxy
->implementations may not properly support these lengths.)” Also see RFC 2817,
+>implementations may not properly support these lengths.)" Also see RFC 2817,
 >Upgrading to TLS within HTTP/1.1, as an update to RFC 2616.  
 >The definitive reference for HTTP-GET and HTTP-POST is:  
 ><http://www.w3.org/Protocols/Overview.html>
 
 * Notification modes: can be server-to-server, or server via browser window to
 server (HTTP-GET only).
-* Responsibilities of sender:  The content source (herein referred to as the
-“Client”) shall arrange for the content package to be made available on a
+* Responsibilities of sender: The content source (herein referred to as the
+"Client") shall arrange for the content package to be made available on a
 staging server. The Client shall be capable of specifying a URI that uses HTTP,
 or HTTPS (secure HTTP) protocols. The Client may optionally support specifying
 FTP and FTPS (secure FTP) protocols and the related access credentials.
@@ -367,13 +366,13 @@ FTP and FTPS (secure FTP) protocols and the related access credentials.
 >to the staging location via FTP and retrieval via an HTTP equivalent or alias
 >to the same location.
 
-* Password: If required by the Client’s system, the notification may include a
+* Password: If required by the Client's system, the notification may include a
 password needed to access the content package.
 
 ##### Responsibilities of recipient of notification (Target System):
 
-* The notification recipient (herein referred to as the “server”) shall be
-capable of supporting both HTTP and HTTPS protocols for the “pull” or “get”
+* The notification recipient (herein referred to as the "server") shall be
+capable of supporting both HTTP and HTTPS protocols for the "pull" or "get"
 transfer of the content package from the URI provided by the Client. The server
 may optionally support the retrieval of packages specified with FTP or FTPS
 protocols and appropriate access credentials. In such cases where the server
@@ -393,10 +392,11 @@ availability of the content package.
 * Target System collects and processes content package.
 
 
-_<-- insert image reference to Figure 1 here -->_
-<!-- insert image reference to Figure 1 here -->
+![Figure 1 - PENS Use Case Phases](./PENS_v2.0.x_UseCasePhases.png "Figure 1 - PENS Use Case Phases")
 
 ###### Figure 1— Conceptual model, Content System-to-Target System communication
+
+
 
 #### 5.1 Description of use case
 
@@ -409,7 +409,7 @@ transfers a content package.
 Assume a content author has created some learning content. A content package
 has been prepared and staged by the Client (the authoring system) at a transfer
 URL (an HTTP site or FTP site) from where it can be collected. The Target
-System that may ultimately retrieve the client’s content package is typically a
+System that may ultimately retrieve the client's content package is typically a
 CMS, LMS or LCMS product.
 
 >NOTE:   
@@ -420,7 +420,7 @@ CMS, LMS or LCMS product.
 >via an HTTP alias. Best practices indicate that HTTP is the preferred
 >transport protocol for the package-url.
 
-The Client System then sends a message that contains the PENS “collect” command
+The Client System then sends a message that contains the PENS "collect" command
 to the Target System (CMS, LMS, LCMS, etc.) via HTTPS. This Package Exchange
 Notification Services (PENS) message includes the elements detailed in the
 table in 6.2. These PENS elements provide information about the type of content
@@ -457,9 +457,9 @@ Command, such as the package type, package id, and client, plus the receipt
 message itself. 
 
 If an error has occurred, an error message should be sent to the receipt URL.
-The “pens-data” portion of the error message could include extended information
+The `pens-data` portion of the error message could include extended information
 about the nature of the error (such as a stack trace of what happened during
-the attempted communication).  See Section 6.3 Response and Error Messages for
+the attempted communication). See Section 6.3 Response and Error Messages for
 details.
 
 ##### Opening and deploying a content package
@@ -471,13 +471,13 @@ catalog, staging the content on a deployment server, etc.
 >NOTE:  
 >Internal processing phases, workflow and alert triggers are
 >implementation-specific and are outside the scope of this specification.
->However, the ‘vendor-data’ may supply useful hints from the content provider
+>However, the ‘vendor-data' may supply useful hints from the content provider
 >about how particular recipient systems are to act on the package subsequent to
 >retrieval.
 
 If an alert URL has been provided, the server may send alerts to the Client
 about the status of the package as it progresses through these various
-processes. For example, an “alert” message may be sent to the content authoring
+processes. For example, an "alert" message may be sent to the content authoring
 management staff (the Client) so that where the retrieved content is being
 cataloged, deployed, etc., can be monitored. Alerts can be sent to one or more
 email addresses.
@@ -501,8 +501,28 @@ define what happens to any package that has been retrieved.
 The table below summarizes the components of the model, which are then defined
 in the subsections indicated.
 
-_<-- insert DATA MODEL TABLE here -->_
-<!-- insert DATA MODEL TABLE here -->
+<!-- Table 1 - DATA MODEL -->
+
+| Component            | Required | Data Type                                             | Sub-section |
+| -------------------- | -------- | ----------------------------------------------------- | ----------- |
+| target system URL    | Yes      | URL                                                   |             |
+| pens-version         | Yes      | x.x.x (string of three integers separated by periods) | 6.2.1       |
+| command              | Yes      | Reserved words, pre-defined character strings         | 6.2.2       |
+| package-type         | Yes      | Reserved words, pre-defined character strings         | 6.2.3       |
+| package-type-version | Yes      | Character string                                      | 6.2.4       |
+| package-format       | Yes      | Character string                                      | 6.2.5       |
+| package-id           | Yes      | A URI according to RFC 2396                           | 6.2.6       |
+| package-url          | Yes      | URL, URL-encoded string                               | 6.2.7       |
+| package-url-user-id  | No       | Character string                                      | 6.2.8       |
+| package-url-account  | No       | Character string                                      | 6.2.9       |
+| package-url-password | No       | Character string                                      | 6.2.10      |
+| package-url-expiry   | Yes      | ISO 8601 format expressed as UTC                      | 6.2.11      |
+| client               | Yes      | Character string                                      | 6.2.12      |
+| system-user-id       | No       | Character string                                      | 6.2.13      |
+| system-password      | No       | Character string                                      | 6.2.14      |
+| receipt              | Yes      | Character string                                      | 6.2.15      |
+| alerts               | No       | Character string                                      | 6.2.16      |
+| vendor-data          | No       | Character string                                      | 6.2.17      |
 
 ASSUMPTIONS/NOTES:
 
@@ -529,8 +549,14 @@ ASSUMPTIONS/NOTES:
 This is a sample URL for a system that might receive and process a valid PENS
 command.
 
-_<-- insert TARGET SYSTEM URL TABLE here -->_
-<!-- insert TARGET SYSTEM URL TABLE here -->
+
+##### target system URL
+<!-- Table 2 - target system URL -->
+| target system URL | Information |
+| ----------------- | ------------------------------------------------------------------ |
+| **Required**: Yes | **Description**: Fully qualified URL of target system that will perform processing. |
+| **Data type**: URL | **Value space**: Valid, fully qualified URI, including transport protocol (e.g., `http://`) |
+| <!-- empty by intent --> | **Example**: `http://acmelearning.lms.com` |
 
 #### 6.2 PENS message elements
 
@@ -542,8 +568,148 @@ for use in subsequent versions as potential candidates for PENS commands.
 * Delete
 * Revise
 
-_<-- insert MESSAGE ELEMENTS TABLE here -->_
-<!-- insert MESSAGE ELEMENTS URL TABLE here -->
+##### pens-version
+<!-- Table 3 - pens-version -->
+| pens-version | Information |
+| ----------------- | ------------------------------------------------------------------ |
+| **Required**: Yes | **Description**: Version of package exchange notification service protocol used by client submitting the package. |
+| **Data type**: x.x.x (string of three integers separated by periods) | **Value space**: Values defined by releases of the specification |
+| <!-- empty by intent --> | **Sample element value**: `2.0.0` |
+
+##### command
+<!-- Table 4 - command -->
+| command | Information |
+| ----------------- | ------------------------------------------------------------------ |
+| **Required**: Yes | **Description**: Command for an action that client submitting the package is requesting for the target system to perform. May include the capability to perform a preview of the content in the system's run-time environment. |
+| **Data type**: Reserved words, pre-defined character strings | **Value space**: Fixed values defined by specification. |
+| <!-- empty by intent --> | **Vocabulary**: At this time only "collect" is defined. See 6.2 for reserved words. |
+| <!-- empty by intent --> | `collect`: To retrieve a content package from a designated server. |
+| <!-- empty by intent --> | **Sample element value**: `collect` |
+
+
+##### package-type	
+<!-- Table 5 - package-type -->
+| package-type	 | Information |
+| ----------------- | ------------------------------------------------------------------ |
+| **Required**: Yes | **Description**: Allowable types of content packages. Other types: AICC assignable unit (`aicc-au`) or SCORM package (`scorm-pif`). |
+| **Data type**: Reserved words, pre-defined character strings  | **Value space**: Fixed values defined by specification. |
+| <!-- empty by intent -->  | **Vocabulary**:<br>aicc-pkg<br>scorm-pif<br>lms-qti |
+| <!-- empty by intent -->  | **Sample element value**: `aicc-pkg` |
+
+##### package-type-version	
+<!-- Table 6 - package-type-version -->
+| package-type-version	 | Information |
+| ----------------- | ------------------------------------------------------------------ |
+| **Required**: Yes | **Description**: Identifies the version of the packaging specification relevant for the package to be processed, e.g., for ADL SCORM `scorm-pif` packages, a system might use `1.2` or `2004`. |
+| **Data type**: Character string  | **Value space**: Values defined by associated package spec releases, such as ADL SCORM, AICC CMI, or IMS QTI specifications. |
+| <!-- empty by intent -->  | **Sample element value**: `1.0` |
+
+##### package-format	
+<!-- Table 7 - package-format -->
+| package-format	 | Information |
+| ----------------- | ------------------------------------------------------------------ |
+| **Required**: Yes | **Description**: Identifies a package as being one of the allowable package archive formats or resource types. |
+| **Data type**: Character string  | **Value space**: Values defined by package archive format or resource types. Reserved values include: `zip`, `url`, `jar`, `war`, and `xml`. |
+| <!-- empty by intent -->  | **Sample element value**: `zip` |
+
+##### package-id	
+<!-- Table 8 - package-id -->
+| package-id	 | Information |
+| ----------------- | ------------------------------------------------------------------ |
+| **Required**: Yes | **Description**: Unique identifier required for package; package-id shall be a URI consisting of two parts, a globally unique namespace taken from the URL associated with the product or the service generating the ID plus an ID unique within the service itself. |
+| **Data type**: A URI according to RFC 2396 | **Value space**: Any URI according to RFC 2396 with the additional requirement that the URI shall be constructed such that its namespace is the URL associated with the product or service generating the ID and the id of the package is unique within that namespace. |
+| <!-- empty by intent -->  | **Sample element value**: `http://myurl.com:2631e419-1573-4720-b4c6-8701f960dccc` |
+
+##### package-url	
+<!-- Table 9 - package-url -->
+| package-url	 | Information |
+| ----------------- | ------------------------------------------------------------------ |
+| **Required**: Yes | **Description**: Location of package archive ready for transfer/action. |
+| **Data type**: URL, URL-encoded string | **Value space**: Valid, fully qualified URL, including transport protocol (e.g., `http://` or `ftp://`) and filename including extension. |
+| <!-- empty by intent -->  | **Sample element value**: `http://myauthoringtool/mycontentpackage.zip` |
+
+##### package-url-user-id	
+<!-- Table 10 - package-url-user-id -->
+| package-url-user-id	 | Information |
+| ----------------- | ------------------------------------------------------------------ |
+| **Required**: No | **Description**: User id required for system to retrieve package from URL. |
+| **Data type**: Character string | **Value space**: Null string or character string. |
+| <!-- empty by intent -->  | **Sample element value**: (null string) |
+
+##### package-url-account	
+<!-- Table 11 - package-url-account -->
+| package-url-account	 | Information |
+| ----------------- | ------------------------------------------------------------------ |
+| **Required**: No | **Description**: Account required for system to retrieve package from URL. |
+| **Data type**: Character string | **Value space**: Null string or character string. |
+| <!-- empty by intent -->  | **Sample element value**: (null string) |
+
+##### package-url-password	
+<!-- Table 12 - package-url-password -->
+| package-url-password	 | Information |
+| ----------------- | ------------------------------------------------------------------ |
+| **Required**: No | **Description**: Password required for system to retrieve package from URL. |
+| **Data type**: Character string | **Value space**: Null string or character string. |
+| <!-- empty by intent -->  | **Sample element value**: (null string) |
+
+##### package-url-expiry	
+<!-- Table 13 - package-url-expiry -->
+| package-url-expiry	 | Information |
+| ----------------- | ------------------------------------------------------------------ |
+| **Required**: Yes | **Description**: The package is expected to be available for processing until at least the date and time specified. |
+| **Data type**: ISO 8601 format expressed as UTC | **Value space**: Null string or character string. |
+| <!-- empty by intent -->  | **Sample element value**: `2016-07-24T02:51:29` |
+
+##### client	
+<!-- Table 14 - client -->
+| client	 | Information |
+| ----------------- | ------------------------------------------------------------------ |
+| **Required**: Yes | **Description**: Name or ID for client submitting the content package to the target system. Other examples: `PerceptionForWeb`; `Captivate`. |
+| **Data type**: Character string | **Value space**: Null string or character string. |
+| <!-- empty by intent -->  | **Sample element value**: `Storyline2` |
+
+##### system-user-id	
+<!-- Table 15 - system-user-id -->
+| system-user-id	 | Information |
+| ----------------- | ------------------------------------------------------------------ |
+| **Required**: No | **Description**: User id or sign-on for target system, or a null string. |
+| **Data type**: Character string | **Value space**: Null string or character string. |
+| <!-- empty by intent -->  | **Sample element value**: `tk007` |
+
+##### system-password	
+<!-- Table 16 - system-password -->
+| system-password	 | Information |
+| ----------------- | ------------------------------------------------------------------ |
+| **Required**: No | **Description**: Either a URL-encoded password token or the null string. If the target system requires a password and the null string value is passed, then the target system is responsible for prompting for a password for target system. |
+| **Data type**: Character string | **Value space**: Null string or character string. |
+| <!-- empty by intent -->  | **Sample element value**: (null string) |
+
+##### receipt	
+<!-- Table 17 - receipt -->
+| receipt	 | Information |
+| ----------------- | ------------------------------------------------------------------ |
+| **Required**: Yes | **Description**: URL to send acknowledgement receipt after collecting a package; if `mailto:` URL is used, it may include more than one address, with addresses separated by commas per RFC 2368 and RFC 2822. |
+| **Data type**: Character string | **Value space**: Any URL, including `mailto:` URL scheme per RFC 2368 and RFC 2822. |
+| <!-- empty by intent -->  | **Sample element value**: `mailto:name@domain.com` |
+
+##### alerts	
+<!-- Table 18 - alerts -->
+| alerts	 | Information |
+| ----------------- | ------------------------------------------------------------------ |
+| **Required**: No | **Description**: URL to send alerts to while processing the package (after the acknowledgment to `receipt` URL). If the alert URL is a `mailto:` URL, it may include more than one address, with addresses separated by commas per RFC 2368 and RFC 2822. The alert response format is the same as that for `receipt`. |
+| **Data type**: Character string |	NOTE: Unlike the receipt URL, `alerts` is optional and multiple messages may be sent to the alert URL over an extended period as the package is processed through the host workflow. |
+| <!-- empty by intent -->  | **Value space**: Any URL, including `mailto:` URL scheme per RFC 2368 and RFC 2822. |
+| <!-- empty by intent -->  | **Sample element value**: `mailto:name@domain.com` |
+
+##### vendor-data	
+<!-- Table 19 - vendor-data -->
+| vendor-data	 | Information |
+| ----------------- | ------------------------------------------------------------------ |
+| **Required**: No | **Description**: Unstructured character string that may be used to transfer vendor-specific data such as processing hints or deployment information. |
+| **Data type**: Character string | NOTE: Conforming implementations of target systems shall be capable of processing valid PENS commands containing this element, regardless of the system's ability to parse or act on the value. The value of this element is likely to be unique across implementations. PENS `alerts` are the mechanism for systems to provide acknowledgements or warnings regarding `vendor-data` values. |
+| <!-- empty by intent -->  | **Value space**: Null string or character string, Smallest Permitted Maximum, 4096 characters |
+| <!-- empty by intent -->  | NOTE: Size may increase if URL-encoding is a requirement of a particular binding. |
+| <!-- empty by intent -->  | **Sample element value**: (null string) |
 
 #### 6.2 Response and Error Messages
 
@@ -597,8 +763,8 @@ specific error code or an error code from the underlying protocol, as indicated
 in table1, table 2, and table 3 below. The binding specification for error code
 communication is in Appendix A.
 
-_<-- insert "Table 1 —Response Error Codes" here -->_
-<!-- insert "Table 1 —Response Error Codes" here -->
+_<-- insert "Table 20 — Response Error Codes" here -->_
+<!-- insert "Table 20 — Response Error Codes" here -->
 
 Error codes are integers represented as character strings, in the range of 0 to
 65,535. Unspecified error codes in the range of 0 to 10000 are reserved for
@@ -611,15 +777,15 @@ use in future editions of the PENS specification. Error codes with numbers
 >(such as 400 series HTTP error codes). These underlying codes shall be used
 >when they are indicative of the error encountered.
 
-_<-- insert "Table 2 — Classification of Error Codes" here -->_
-<!-- insert "Table 2 — Classification of Error Codes" here -->
+_<-- insert "Table 21 — Classification of Error Codes" here -->_
+<!-- insert "Table 21 — Classification of Error Codes" here -->
 
 Rationale: Errors are listed in increasing specificity; systems are to respond
 with highest numbered error encountered. Error codes designated as warnings may
 allow some degree of package processing (may not be fatal errors).
 
-_<-- insert "Table 3— PENS-Specific Error Codes" here -->_
-<!-- insert "Table 3— PENS-Specific Error Codes" here -->
+_<-- insert "Table 22— PENS-Specific Error Codes" here -->_
+<!-- insert "Table 22— PENS-Specific Error Codes" here -->
 
 ---
 
@@ -636,25 +802,25 @@ The URI shall consist of 4 components, as described in RFC 2396,
 The target system URL from the PENS data model (6.1) shall be used to create
 the `<scheme>`, `<authority>` and `<path>` portions of the URI.
 
-This portion of the URI shall be followed by the ASCII character “?” to
+This portion of the URI shall be followed by the ASCII character "?" to
 indicate the start of the `<query>` component of the URI, as per RFC 2396.
 
 The query component of the URI shall be an unordered list of message elements.
 
 Each element shall contain an element name, as specified in 6.2, followed by
-the ASCII character “=” followed by the value for the message element.  The
+the ASCII character "=" followed by the value for the message element. The
 value for the message element shall be the lexical character encoding of the
-value from the value space for the elements defined in 6.2.  Message elements
-shall be separated by the ASCII character “&”.
+value from the value space for the elements defined in 6.2. Message elements
+shall be separated by the ASCII character "&".
 
-* query = message element * (“&” message element)
-* message element = pens element name “=” lexical element value
+* query = message element * ("&" message element)
+* message element = pens element name "=" lexical element value
 
 The entire URI shall be URI-encoded as per RFC 1738 and RFC 2396. Examples of
 message element values, properly URI-encoded, are shown in the table below.
 
-_<-- insert "Table A-1 — Examples of Binding of Individual PENS Message Elements" here -->_
-<!-- insert "Table A-1 — Examples of Binding of Individual PENS Message Elements" here -->
+_<-- insert "Table #23 A-1 — Examples of Binding of Individual PENS Message Elements" here -->_
+<!-- insert "Table #23 A-1 — Examples of Binding of Individual PENS Message Elements" here -->
 
 >NOTE:  
 >For cases when either the alert or the receipt value specifies the `mailto:`
@@ -669,7 +835,7 @@ _<-- insert "Table A-1 — Examples of Binding of Individual PENS Message Elemen
 >return linefeed pair to separate this information from the PENS response data.
 >4. Include all required data element names and the corresponding values of the
 >PENS response in the body of the email. Preferred formatting is a data element
->name followed by “=” then the corresponding value with a carriage return line
+>name followed by "=" then the corresponding value with a carriage return line
 >feed pair after the value.
 >5. As indicated in Section 5.1, the format of the alert message is not fully
 >defined, but should include relevant data from the inbound Collect Command,
@@ -739,8 +905,8 @@ are given in Section 6.3 Table 1; Classification of PENS Error Codes and
 Descriptive Text representing specific error situations are listed in Section
 6.3 Tables 2 and 3.
 
-_<-- insert "Table A-2 — Response & Error Message Format" here -->_
-<!-- insert "Table A-2 — Response & Error Message Format" here -->
+_<-- insert "Table #24 A-2 — Response & Error Message Format" here -->_
+<!-- insert "Table #24 A-2 — Response & Error Message Format" here -->
 
 ###### Example:
 
@@ -761,10 +927,10 @@ The end-of-line marker is CR LF (carriage return linefeed) per RFC 2616: HTTP/1.
 
 The hexadecimal values for CRLF acronyms for ASCII systems are `OD`, `OA`;
 hexadecimal mapping for Unicode systems is `OxOD`, `OxOA` (per Unicode
-Technical Report #13, “Unicode Newline Guidelines”).
+Technical Report #13, "Unicode Newline Guidelines").
 
 For http responses, the content type in the HTTP content header should be
-“Content: text/plain” with the <CR><LF> pairs as indicated.
+`Content: text/plain` with the `<CR><LF>` pairs as indicated.
 
 ---
 
@@ -777,8 +943,8 @@ the successful deployment of a package from an Author to an LMS.
 
 #### 2.2 Actors
 
-* Author - http://author.com/pens.cgi - Creates packages to send to LMS
-* LMS - http://lms.com/pens.cgi - Receives packages from Author to deploy
+* Author - `http://author.com/pens.cgi` - Creates packages to send to LMS
+* LMS - `http://lms.com/pens.cgi` - Receives packages from Author to deploy
 and deliver
 
 #### 2.3 Stages
