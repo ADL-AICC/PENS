@@ -869,25 +869,25 @@ The entire URI shall be URI-encoded as per RFC 1738 and RFC 2396. Examples of
 message element values, properly URI-encoded, are shown in the table below.
 
 <!-- insert "Table #23 A-1 — Examples of Binding of Individual PENS Message Elements" here -->
-| PENS Message Element Name | Example URI Binding | Sub-section |
-| ------------------- | ----------------------------------------- | -------- |
-| `pens-version` | `pens-version=1.0.0` | 6.2.1 |
-| `command` | `command=collect` | 6.2.2 |
-| `package-type` | `package-type=aicc-pkg` | 6.2.3 |
-| `package-type-version` | `package-type-version=1.0` | 6.2.4 |
-| `package-format` | `package-format=zip` | 6.2.5 |
-| `package-id` | `package-id=http%3A%2F%2Fmyurl.com%3A2631e419-1573-4720-b4c6-8701f960dccc`	| 6.2.6 |
-| `package-url` | `package-url=http%3A%2F%2Fmyauthoringtool%2Fmycontentpackage.zip`	| 6.2.7 |
-| `package-url-user-id` | `package-url-user-id=` | 6.2.8 |
-| `package-url-account` | `package-url-account=` | 6.2.9 |
-| `package-url-password` | `package-url-password=` | 6.2.10 |
-| `package-url-expiry` | `package-url-expiry=2005-07-22T06%3A51%3A29` | 6.2.11 |
-| `client` | `client=Authorware7` | 6.2.12 |
-| `system-user-id` | `system-user-id=tk007` | 6.2.13 |
-| `system-password` | `system-password=` | 6.2.14 |
-| `receipt` | `receipt=mailto%3Aname%40domain.com` | 6.2.15 |
-| `alerts` | `alerts=mailto%3Aname%40domain.com` | 6.2.16 |
-| `vendor-data` | `vendor-data=preview-mode%3Ainstructor` | 6.2.17 |
+| PENS Message Element Name | Example URI Binding                                                        | Sub-section |
+| ------------------------- | -------------------------------------------------------------------------- | ----------- |
+| `pens-version`            | `pens-version=1.0.0`                                                       | 6.2.1       |
+| `command`                 | `command=collect`                                                          | 6.2.2       |
+| `package-type`            | `package-type=aicc-pkg`                                                    | 6.2.3       |
+| `package-type-version`    | `package-type-version=1.0`                                                 | 6.2.4       |
+| `package-format`          | `package-format=zip`                                                       | 6.2.5       |
+| `package-id`              | `package-id=http%3A%2F%2Fmyurl.com%3A2631e419-1573-4720-b4c6-8701f960dccc` | 6.2.6       |
+| `package-url`             | `package-url=http%3A%2F%2Fmyauthoringtool%2Fmycontentpackage.zip`          | 6.2.7       |
+| `package-url-user-id`     | `package-url-user-id=`                                                     | 6.2.8       |
+| `package-url-account`     | `package-url-account=`                                                     | 6.2.9       |
+| `package-url-password`    | `package-url-password=`                                                    | 6.2.10      |
+| `package-url-expiry`      | `package-url-expiry=2005-07-22T06%3A51%3A29`                               | 6.2.11      |
+| `client`                  | `client=Authorware7`                                                       | 6.2.12      |
+| `system-user-id`          | `system-user-id=tk007`                                                     | 6.2.13      |
+| `system-password`         | `system-password=`                                                         | 6.2.14      |
+| `receipt`                 | `receipt=mailto%3Aname%40domain.com`                                       | 6.2.15      |
+| `alerts`                  | `alerts=mailto%3Aname%40domain.com`                                        | 6.2.16      |
+| `vendor-data`             | `vendor-data=preview-mode%3Ainstructor`                                    | 6.2.17      |
 
 >NOTE:  
 >For cases when either the alert or the receipt value specifies the `mailto:`
@@ -973,12 +973,12 @@ Descriptive Text representing specific error situations are listed in Section
 6.3 Tables 2 and 3.
 
 <!-- insert "Table #24 A-2 — Response & Error Message Format" here -->
-| Name | Value |
-| ------------ | -------------------------------- |
-| `error=` | _pens error code number_ `<CR LF>` |
+| Name          | Value                              |
+| ------------- | ---------------------------------- |
+| `error=`      | _pens error code number_ `<CR LF>` |
 | `error-text=` | _pens error description_ `<CR LF>` |
-| `version=` | _pens spec version_ `<CR LF>` |
-| `pens-data=` | _pens data_ … <br> _end of buffer_ |
+| `version=`    | _pens spec version_ `<CR LF>`      |
+| `pens-data=`  | _pens data_ … <br> _end of buffer_ |
 
 ###### Example:
 
@@ -1118,3 +1118,4 @@ Conceptual end of the stages of communication.
 [A2]  SCORM – <http://www.adlnet.org>
 
 [A3]  AICC CRS002, Glossary of Terms Related to Computer Based Training (CBT)
+
