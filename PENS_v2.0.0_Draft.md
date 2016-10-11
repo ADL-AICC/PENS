@@ -502,7 +502,6 @@ The table below summarizes the components of the model, which are then defined
 in the subsections indicated.
 
 <!-- Table 1 - DATA MODEL -->
-
 | Component            | Required | Data Type                                             | Sub-section |
 | -------------------- | -------- | ----------------------------------------------------- | ----------- |
 | target system URL    | Yes      | URL                                                   |             |
@@ -523,6 +522,8 @@ in the subsections indicated.
 | receipt              | Yes      | Character string                                      | 6.2.15      |
 | alerts               | No       | Character string                                      | 6.2.16      |
 | vendor-data          | No       | Character string                                      | 6.2.17      |
+
+
 
 ASSUMPTIONS/NOTES:
 
@@ -552,11 +553,11 @@ command.
 
 ##### target system URL
 <!-- Table 2 - target system URL -->
-| target system URL | Information |
-| ----------------- | ------------------------------------------------------------------ |
-| **Required**: Yes | **Description**: Fully qualified URL of target system that will perform processing. |
-| **Data type**: URL | **Value space**: Valid, fully qualified URI, including transport protocol (e.g., `http://`) |
-| <!-- empty by intent --> | **Example**: `http://acmelearning.lms.com` |
+| target system URL        | Information                                                                                 |
+| ------------------------ | ------------------------------------------------------------------------------------------- |
+| **Required**: Yes        | **Description**: Fully qualified URL of target system that will perform processing.         |
+| **Data type**: URL       | **Value space**: Valid, fully qualified URI, including transport protocol (e.g., `http://`) |
+| <!-- empty by intent --> | **Example**: `http://acmelearning.lms.com`                                                  |
 
 #### 6.2 PENS message elements
 
@@ -570,146 +571,146 @@ for use in subsequent versions as potential candidates for PENS commands.
 
 ##### pens-version
 <!-- Table 3 - pens-version -->
-| pens-version | Information |
-| ----------------- | ------------------------------------------------------------------ |
-| **Required**: Yes | **Description**: Version of package exchange notification service protocol used by client submitting the package. |
-| **Data type**: x.x.x (string of three integers separated by periods) | **Value space**: Values defined by releases of the specification |
-| <!-- empty by intent --> | **Sample element value**: `2.0.0` |
+| pens-version                                                         | Information                                                                                                       |
+| -------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------- |
+| **Required**: Yes                                                    | **Description**: Version of package exchange notification service protocol used by client submitting the package. |
+| **Data type**: x.x.x (string of three integers separated by periods) | **Value space**: Values defined by releases of the specification                                                  |
+| <!-- empty by intent -->                                             | **Sample element value**: `2.0.0`                                                                                 |
 
 ##### command
 <!-- Table 4 - command -->
-| command | Information |
-| ----------------- | ------------------------------------------------------------------ |
-| **Required**: Yes | **Description**: Command for an action that client submitting the package is requesting for the target system to perform. May include the capability to perform a preview of the content in the system's run-time environment. |
-| **Data type**: Reserved words, pre-defined character strings | **Value space**: Fixed values defined by specification. |
-| <!-- empty by intent --> | **Vocabulary**: At this time only "collect" is defined. See 6.2 for reserved words. |
-| <!-- empty by intent --> | `collect`: To retrieve a content package from a designated server. |
-| <!-- empty by intent --> | **Sample element value**: `collect` |
+| command                                                      | Information                                                                                                                                                                                                                    |
+| ------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| **Required**: Yes                                            | **Description**: Command for an action that client submitting the package is requesting for the target system to perform. May include the capability to perform a preview of the content in the system's run-time environment. |
+| **Data type**: Reserved words, pre-defined character strings | **Value space**: Fixed values defined by specification.                                                                                                                                                                        |
+| <!-- empty by intent -->                                     | **Vocabulary**: At this time only "collect" is defined. See 6.2 for reserved words.                                                                                                                                            |
+| <!-- empty by intent -->                                     | `collect`: To retrieve a content package from a designated server.                                                                                                                                                             |
+| <!-- empty by intent -->                                     | **Sample element value**: `collect`                                                                                                                                                                                            |
 
 
 ##### package-type	
 <!-- Table 5 - package-type -->
-| package-type	 | Information |
-| ----------------- | ------------------------------------------------------------------ |
-| **Required**: Yes | **Description**: Allowable types of content packages. Other types: AICC assignable unit (`aicc-au`) or SCORM package (`scorm-pif`). |
-| **Data type**: Reserved words, pre-defined character strings  | **Value space**: Fixed values defined by specification. |
-| <!-- empty by intent -->  | **Vocabulary**:<br>aicc-pkg<br>scorm-pif<br>lms-qti |
-| <!-- empty by intent -->  | **Sample element value**: `aicc-pkg` |
+| package-type                                                 | Information                                                                                                                         |
+| ------------------------------------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------- |
+| **Required**: Yes                                            | **Description**: Allowable types of content packages. Other types: AICC assignable unit (`aicc-au`) or SCORM package (`scorm-pif`). |
+| **Data type**: Reserved words, pre-defined character strings | **Value space**: Fixed values defined by specification.                                                                             |
+| <!-- empty by intent -->                                     | **Vocabulary**:<br>aicc-pkg<br>scorm-pif<br>lms-qti                                                                                 |
+| <!-- empty by intent -->                                     | **Sample element value**: `aicc-pkg`                                                                                                |
 
 ##### package-type-version	
 <!-- Table 6 - package-type-version -->
-| package-type-version	 | Information |
-| ----------------- | ------------------------------------------------------------------ |
-| **Required**: Yes | **Description**: Identifies the version of the packaging specification relevant for the package to be processed, e.g., for ADL SCORM `scorm-pif` packages, a system might use `1.2` or `2004`. |
-| **Data type**: Character string  | **Value space**: Values defined by associated package spec releases, such as ADL SCORM, AICC CMI, or IMS QTI specifications. |
-| <!-- empty by intent -->  | **Sample element value**: `1.0` |
+| package-type-version            | Information                                                                                                                                                                                    |
+| ------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Required**: Yes               | **Description**: Identifies the version of the packaging specification relevant for the package to be processed, e.g., for ADL SCORM `scorm-pif` packages, a system might use `1.2` or `2004`. |
+| **Data type**: Character string | **Value space**: Values defined by associated package spec releases, such as ADL SCORM, AICC CMI, or IMS QTI specifications.                                                                   |
+| <!-- empty by intent -->        | **Sample element value**: `1.0`                                                                                                                                                                |
 
 ##### package-format	
 <!-- Table 7 - package-format -->
-| package-format	 | Information |
-| ----------------- | ------------------------------------------------------------------ |
-| **Required**: Yes | **Description**: Identifies a package as being one of the allowable package archive formats or resource types. |
-| **Data type**: Character string  | **Value space**: Values defined by package archive format or resource types. Reserved values include: `zip`, `url`, `jar`, `war`, and `xml`. |
-| <!-- empty by intent -->  | **Sample element value**: `zip` |
+| package-format                  | Information                                                                                                                                  |
+| ------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Required**: Yes               | **Description**: Identifies a package as being one of the allowable package archive formats or resource types.                               |
+| **Data type**: Character string | **Value space**: Values defined by package archive format or resource types. Reserved values include: `zip`, `url`, `jar`, `war`, and `xml`. |
+| <!-- empty by intent -->        | **Sample element value**: `zip`                                                                                                              |
 
 ##### package-id	
 <!-- Table 8 - package-id -->
-| package-id	 | Information |
-| ----------------- | ------------------------------------------------------------------ |
-| **Required**: Yes | **Description**: Unique identifier required for package; package-id shall be a URI consisting of two parts, a globally unique namespace taken from the URL associated with the product or the service generating the ID plus an ID unique within the service itself. |
+| package-id                                 | Information                                                                                                                                                                                                                                                             |
+| ------------------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Required**: Yes                          | **Description**: Unique identifier required for package; package-id shall be a URI consisting of two parts, a globally unique namespace taken from the URL associated with the product or the service generating the ID plus an ID unique within the service itself.    |
 | **Data type**: A URI according to RFC 2396 | **Value space**: Any URI according to RFC 2396 with the additional requirement that the URI shall be constructed such that its namespace is the URL associated with the product or service generating the ID and the id of the package is unique within that namespace. |
-| <!-- empty by intent -->  | **Sample element value**: `http://myurl.com:2631e419-1573-4720-b4c6-8701f960dccc` |
+| <!-- empty by intent -->                   | **Sample element value**: `http://myurl.com:2631e419-1573-4720-b4c6-8701f960dccc`                                                                                                                                                                                       |
 
 ##### package-url	
 <!-- Table 9 - package-url -->
-| package-url	 | Information |
-| ----------------- | ------------------------------------------------------------------ |
-| **Required**: Yes | **Description**: Location of package archive ready for transfer/action. |
+| package-url                            | Information                                                                                                                               |
+| -------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------- |
+| **Required**: Yes                      | **Description**: Location of package archive ready for transfer/action.                                                                   |
 | **Data type**: URL, URL-encoded string | **Value space**: Valid, fully qualified URL, including transport protocol (e.g., `http://` or `ftp://`) and filename including extension. |
-| <!-- empty by intent -->  | **Sample element value**: `http://myauthoringtool/mycontentpackage.zip` |
+| <!-- empty by intent -->               | **Sample element value**: `http://myauthoringtool/mycontentpackage.zip`                                                                   |
 
 ##### package-url-user-id	
 <!-- Table 10 - package-url-user-id -->
-| package-url-user-id	 | Information |
-| ----------------- | ------------------------------------------------------------------ |
-| **Required**: No | **Description**: User id required for system to retrieve package from URL. |
-| **Data type**: Character string | **Value space**: Null string or character string. |
-| <!-- empty by intent -->  | **Sample element value**: (null string) |
+| package-url-user-id             | Information                                                                |
+| ------------------------------- | -------------------------------------------------------------------------- |
+| **Required**: No                | **Description**: User id required for system to retrieve package from URL. |
+| **Data type**: Character string | **Value space**: Null string or character string.                          |
+| <!-- empty by intent -->        | **Sample element value**: (null string)                                    |
 
 ##### package-url-account	
 <!-- Table 11 - package-url-account -->
-| package-url-account	 | Information |
-| ----------------- | ------------------------------------------------------------------ |
-| **Required**: No | **Description**: Account required for system to retrieve package from URL. |
-| **Data type**: Character string | **Value space**: Null string or character string. |
-| <!-- empty by intent -->  | **Sample element value**: (null string) |
+| package-url-account             | Information                                                                |
+| ------------------------------- | -------------------------------------------------------------------------- |
+| **Required**: No                | **Description**: Account required for system to retrieve package from URL. |
+| **Data type**: Character string | **Value space**: Null string or character string.                          |
+| <!-- empty by intent -->        | **Sample element value**: (null string)                                    |
 
 ##### package-url-password	
 <!-- Table 12 - package-url-password -->
-| package-url-password	 | Information |
-| ----------------- | ------------------------------------------------------------------ |
-| **Required**: No | **Description**: Password required for system to retrieve package from URL. |
-| **Data type**: Character string | **Value space**: Null string or character string. |
-| <!-- empty by intent -->  | **Sample element value**: (null string) |
+| package-url-password            | Information                                                                 |
+| ------------------------------- | --------------------------------------------------------------------------- |
+| **Required**: No                | **Description**: Password required for system to retrieve package from URL. |
+| **Data type**: Character string | **Value space**: Null string or character string.                           |
+| <!-- empty by intent -->        | **Sample element value**: (null string)                                     |
 
 ##### package-url-expiry	
 <!-- Table 13 - package-url-expiry -->
-| package-url-expiry	 | Information |
-| ----------------- | ------------------------------------------------------------------ |
-| **Required**: Yes | **Description**: The package is expected to be available for processing until at least the date and time specified. |
-| **Data type**: ISO 8601 format expressed as UTC | **Value space**: Null string or character string. |
-| <!-- empty by intent -->  | **Sample element value**: `2016-07-24T02:51:29` |
+| package-url-expiry                              | Information                                                                                                         |
+| ----------------------------------------------- | ------------------------------------------------------------------------------------------------------------------- |
+| **Required**: Yes                               | **Description**: The package is expected to be available for processing until at least the date and time specified. |
+| **Data type**: ISO 8601 format expressed as UTC | **Value space**: Null string or character string.                                                                   |
+| <!-- empty by intent -->                        | **Sample element value**: `2016-07-24T02:51:29`                                                                     |
 
 ##### client	
 <!-- Table 14 - client -->
-| client	 | Information |
-| ----------------- | ------------------------------------------------------------------ |
-| **Required**: Yes | **Description**: Name or ID for client submitting the content package to the target system. Other examples: `PerceptionForWeb`; `Captivate`. |
-| **Data type**: Character string | **Value space**: Null string or character string. |
-| <!-- empty by intent -->  | **Sample element value**: `Storyline2` |
+| client                          | Information                                                                                                                                  |
+| ------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Required**: Yes               | **Description**: Name or ID for client submitting the content package to the target system. Other examples: `PerceptionForWeb`; `Captivate`. |
+| **Data type**: Character string | **Value space**: Null string or character string.                                                                                            |
+| <!-- empty by intent -->        | **Sample element value**: `Storyline2`                                                                                                       |
 
 ##### system-user-id	
 <!-- Table 15 - system-user-id -->
-| system-user-id	 | Information |
-| ----------------- | ------------------------------------------------------------------ |
-| **Required**: No | **Description**: User id or sign-on for target system, or a null string. |
-| **Data type**: Character string | **Value space**: Null string or character string. |
-| <!-- empty by intent -->  | **Sample element value**: `tk007` |
+| system-user-id                  | Information                                                              |
+| ------------------------------- | ------------------------------------------------------------------------ |
+| **Required**: No                | **Description**: User id or sign-on for target system, or a null string. |
+| **Data type**: Character string | **Value space**: Null string or character string.                        |
+| <!-- empty by intent -->        | **Sample element value**: `tk007`                                        |
 
 ##### system-password	
 <!-- Table 16 - system-password -->
-| system-password	 | Information |
-| ----------------- | ------------------------------------------------------------------ |
-| **Required**: No | **Description**: Either a URL-encoded password token or the null string. If the target system requires a password and the null string value is passed, then the target system is responsible for prompting for a password for target system. |
-| **Data type**: Character string | **Value space**: Null string or character string. |
-| <!-- empty by intent -->  | **Sample element value**: (null string) |
+| system-password                 | Information                                                                                                                                                                                                                                  |
+| ------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Required**: No                | **Description**: Either a URL-encoded password token or the null string. If the target system requires a password and the null string value is passed, then the target system is responsible for prompting for a password for target system. |
+| **Data type**: Character string | **Value space**: Null string or character string.                                                                                                                                                                                            |
+| <!-- empty by intent -->        | **Sample element value**: (null string)                                                                                                                                                                                                      |
 
 ##### receipt	
 <!-- Table 17 - receipt -->
-| receipt	 | Information |
-| ----------------- | ------------------------------------------------------------------ |
-| **Required**: Yes | **Description**: URL to send acknowledgement receipt after collecting a package; if `mailto:` URL is used, it may include more than one address, with addresses separated by commas per RFC 2368 and RFC 2822. |
-| **Data type**: Character string | **Value space**: Any URL, including `mailto:` URL scheme per RFC 2368 and RFC 2822. |
-| <!-- empty by intent -->  | **Sample element value**: `mailto:name@domain.com` |
+| receipt                         | Information                                                                                                                                                                                                    |
+| ------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Required**: Yes               | **Description**: URL to send acknowledgement receipt after collecting a package; if `mailto:` URL is used, it may include more than one address, with addresses separated by commas per RFC 2368 and RFC 2822. |
+| **Data type**: Character string | **Value space**: Any URL, including `mailto:` URL scheme per RFC 2368 and RFC 2822.                                                                                                                            |
+| <!-- empty by intent -->        | **Sample element value**: `mailto:name@domain.com`                                                                                                                                                             |
 
 ##### alerts	
 <!-- Table 18 - alerts -->
-| alerts	 | Information |
-| ----------------- | ------------------------------------------------------------------ |
-| **Required**: No | **Description**: URL to send alerts to while processing the package (after the acknowledgment to `receipt` URL). If the alert URL is a `mailto:` URL, it may include more than one address, with addresses separated by commas per RFC 2368 and RFC 2822. The alert response format is the same as that for `receipt`. |
-| **Data type**: Character string |	NOTE: Unlike the receipt URL, `alerts` is optional and multiple messages may be sent to the alert URL over an extended period as the package is processed through the host workflow. |
-| <!-- empty by intent -->  | **Value space**: Any URL, including `mailto:` URL scheme per RFC 2368 and RFC 2822. |
-| <!-- empty by intent -->  | **Sample element value**: `mailto:name@domain.com` |
+| alerts                          | Information                                                                                                                                                                                                                                                                                                            |
+| ------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Required**: No                | **Description**: URL to send alerts to while processing the package (after the acknowledgment to `receipt` URL). If the alert URL is a `mailto:` URL, it may include more than one address, with addresses separated by commas per RFC 2368 and RFC 2822. The alert response format is the same as that for `receipt`. |
+| **Data type**: Character string | NOTE: Unlike the receipt URL, `alerts` is optional and multiple messages may be sent to the alert URL over an extended period as the package is processed through the host workflow.                                                                                                                                   |
+| <!-- empty by intent -->        | **Value space**: Any URL, including `mailto:` URL scheme per RFC 2368 and RFC 2822.                                                                                                                                                                                                                                    |
+| <!-- empty by intent -->        | **Sample element value**: `mailto:name@domain.com`                                                                                                                                                                                                                                                                     |
 
 ##### vendor-data	
 <!-- Table 19 - vendor-data -->
-| vendor-data	 | Information |
-| ----------------- | ------------------------------------------------------------------ |
-| **Required**: No | **Description**: Unstructured character string that may be used to transfer vendor-specific data such as processing hints or deployment information. |
+| vendor-data                     | Information                                                                                                                                                                                                                                                                                                                                                                                  |
+| ------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Required**: No                | **Description**: Unstructured character string that may be used to transfer vendor-specific data such as processing hints or deployment information.                                                                                                                                                                                                                                         |
 | **Data type**: Character string | NOTE: Conforming implementations of target systems shall be capable of processing valid PENS commands containing this element, regardless of the system's ability to parse or act on the value. The value of this element is likely to be unique across implementations. PENS `alerts` are the mechanism for systems to provide acknowledgements or warnings regarding `vendor-data` values. |
-| <!-- empty by intent -->  | **Value space**: Null string or character string, Smallest Permitted Maximum, 4096 characters |
-| <!-- empty by intent -->  | NOTE: Size may increase if URL-encoding is a requirement of a particular binding. |
-| <!-- empty by intent -->  | **Sample element value**: (null string) |
+| <!-- empty by intent -->        | **Value space**: Null string or character string, Smallest Permitted Maximum, 4096 characters                                                                                                                                                                                                                                                                                                |
+| <!-- empty by intent -->        | NOTE: Size may increase if URL-encoding is a requirement of a particular binding.                                                                                                                                                                                                                                                                                                            |
+| <!-- empty by intent -->        | **Sample element value**: (null string)                                                                                                                                                                                                                                                                                                                                                      |
 
 #### 6.2 Response and Error Messages
 
@@ -763,8 +764,12 @@ specific error code or an error code from the underlying protocol, as indicated
 in table1, table 2, and table 3 below. The binding specification for error code
 communication is in Appendix A.
 
-_<-- insert "Table 20 — Response Error Codes" here -->_
-<!-- insert "Table 20 — Response Error Codes" here -->
+<!-- Table 20 — "Response Error Codes" -->
+| Code Number | Error Text                                            |
+| ----------- | ----------------------------------------------------- |
+| 0           | No error, successful                                  |
+| other       | See error as listed in Table 3 - Specific Error Codes |
+
 
 Error codes are integers represented as character strings, in the range of 0 to
 65,535. Unspecified error codes in the range of 0 to 10000 are reserved for
@@ -777,15 +782,59 @@ use in future editions of the PENS specification. Error codes with numbers
 >(such as 400 series HTTP error codes). These underlying codes shall be used
 >when they are indicative of the error encountered.
 
-_<-- insert "Table 21 — Classification of Error Codes" here -->_
 <!-- insert "Table 21 — Classification of Error Codes" here -->
+| Range        | Error Type                                    |
+| ------------ | --------------------------------------------- |
+| 100 to 200   |                                               |
+| 200 to 500   | Underlying protocol errors, e.g., HTTP errors |
+| 1000 to 1199 | General PENS errors                           |
+| 1200 to 1299 | PENS syntax errors                            |
+| 1300 to 1399 | PENS transport errors                         |
+| 1400 to 1499 | Host system errors                            |
+| 1500 to 1599 | Acknowledgement and Alert errors              |
+| 2000 to 9999 | PENS parameter errors                         |
 
 Rationale: Errors are listed in increasing specificity; systems are to respond
 with highest numbered error encountered. Error codes designated as warnings may
 allow some degree of package processing (may not be fatal errors).
 
-_<-- insert "Table 22— PENS-Specific Error Codes" here -->_
 <!-- insert "Table 22— PENS-Specific Error Codes" here -->
+| Code Number | Name                                      | Descriptive Text                                                                                                             |
+| ----------- | ----------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------- |
+| 1101        | General error                             | Unable to parse PENS command                                                                                                 |
+|             |                                           |                                                                                                                              |
+| 1201        | General argument error                    | Attempt to pass an invalid argument                                                                                          |
+|             |                                           |                                                                                                                              |
+| 1301        | General retrieve error                    | Unable to retrieve package                                                                                                   |
+| 1302        | Secure HTTP protocol not supported        | Unable to retrieve package via HTTPS                                                                                         |
+| 1304        | FTP protocol not supported                | Unable to retrieve package via FTP                                                                                           |
+| 1306        | Secure FTP protocol not supported         | Unable to retrieve package via FTPS                                                                                          |
+| 1310        | Invalid or unresponsive package URL       | Unable to retrieve package at specified URL due to error in URL or lack of response from URL                                 |
+| 1312        | Invalid package access credentials        | Unable to retrieve package at specified URL due to error with access credential for package URL                              |
+| 1320        | Warning - invalid expiry date             | Expiration date is non-null and in an improper format                                                                        |
+| 1322        | Warning - expired package                 | Current time indicates expiry date has passed                                                                                |
+|             |                                           |                                                                                                                              |
+| 1420        | PENS version not supported                | Insufficient permission                                                                                                      |
+| 1421        | Command not supported                     | Client has requested host to execute an invalid, unknown or unsupported command                                              |
+| 1430        | Package type not supported                | Client has requested host to process an invalid, unknown or unsupported package type                                         |
+| 1432        | Internal package error                    | Host unable to process package after successfully retrieving it because of an error with package archive or package contents |
+| 1440        | Insufficient host space/storage available | Host unable to process package due to local storage space or account restrictions                                            |
+|             |                                           |                                                                                                                              |
+| 1500        | General acknowledgment error              | Unable to communicate with provided acknowledgement URL                                                                      |
+| 1510        | Unsupported acknowledgement protocol      | Unsupported acknowledgement protocol                                                                                         |
+| 1520        | Unsupported alert protocol                | Unsupported alert protocol                                                                                                   |
+|             |                                           |                                                                                                                              |
+| 2001        | pens-version parameter missing            | Message incomplete; PENS version invalid or not specified                                                                    |
+| 2002        | command parameter missing                 | Message incomplete; PENS command invalid or not specified                                                                    |
+| 2003        | package-type parameter missing            | Message incomplete; package-type invalid or not specified                                                                    |
+| 2004        | package-type-version parameter missing    | Message incomplete; package-type-version invalid or not specified                                                            |
+| 2005        | package-format parameter missing          | Message incomplete; package-format invalid or not specified                                                                  |
+| 2007        | package-id parameter missing              | Message incomplete; package-id invalid or not specified                                                                      |
+| 2008        | package-url parameter missing             | Message incomplete; package-url invalid or not specified                                                                     |
+| 2009        | package-url-expiry parameter missing      | Message incomplete; package-url-expiry date invalid or not specified                                                         |
+| 2010        | client parameter missing                  | Message incomplete; client submitting package invalid or not specified                                                       |
+| 2011        | receipt parameter missing                 | Message incomplete; where to send response invalid or not specified                                                          |
+
 
 ---
 
@@ -819,8 +868,26 @@ shall be separated by the ASCII character "&".
 The entire URI shall be URI-encoded as per RFC 1738 and RFC 2396. Examples of
 message element values, properly URI-encoded, are shown in the table below.
 
-_<-- insert "Table #23 A-1 — Examples of Binding of Individual PENS Message Elements" here -->_
 <!-- insert "Table #23 A-1 — Examples of Binding of Individual PENS Message Elements" here -->
+| PENS Message Element Name | Example URI Binding | Sub-section |
+| ------------------- | ----------------------------------------- | -------- |
+| `pens-version` | `pens-version=1.0.0` | 6.2.1 |
+| `command` | `command=collect` | 6.2.2 |
+| `package-type` | `package-type=aicc-pkg` | 6.2.3 |
+| `package-type-version` | `package-type-version=1.0` | 6.2.4 |
+| `package-format` | `package-format=zip` | 6.2.5 |
+| `package-id` | `package-id=http%3A%2F%2Fmyurl.com%3A2631e419-1573-4720-b4c6-8701f960dccc`	| 6.2.6 |
+| `package-url` | `package-url=http%3A%2F%2Fmyauthoringtool%2Fmycontentpackage.zip`	| 6.2.7 |
+| `package-url-user-id` | `package-url-user-id=` | 6.2.8 |
+| `package-url-account` | `package-url-account=` | 6.2.9 |
+| `package-url-password` | `package-url-password=` | 6.2.10 |
+| `package-url-expiry` | `package-url-expiry=2005-07-22T06%3A51%3A29` | 6.2.11 |
+| `client` | `client=Authorware7` | 6.2.12 |
+| `system-user-id` | `system-user-id=tk007` | 6.2.13 |
+| `system-password` | `system-password=` | 6.2.14 |
+| `receipt` | `receipt=mailto%3Aname%40domain.com` | 6.2.15 |
+| `alerts` | `alerts=mailto%3Aname%40domain.com` | 6.2.16 |
+| `vendor-data` | `vendor-data=preview-mode%3Ainstructor` | 6.2.17 |
 
 >NOTE:  
 >For cases when either the alert or the receipt value specifies the `mailto:`
@@ -905,8 +972,13 @@ are given in Section 6.3 Table 1; Classification of PENS Error Codes and
 Descriptive Text representing specific error situations are listed in Section
 6.3 Tables 2 and 3.
 
-_<-- insert "Table #24 A-2 — Response & Error Message Format" here -->_
 <!-- insert "Table #24 A-2 — Response & Error Message Format" here -->
+| Name | Value |
+| ------------ | -------------------------------- |
+| `error=` | _pens error code number_ `<CR LF>` |
+| `error-text=` | _pens error description_ `<CR LF>` |
+| `version=` | _pens spec version_ `<CR LF>` |
+| `pens-data=` | _pens data_ … <br> _end of buffer_ |
 
 ###### Example:
 
@@ -1046,4 +1118,3 @@ Conceptual end of the stages of communication.
 [A2]  SCORM – <http://www.adlnet.org>
 
 [A3]  AICC CRS002, Glossary of Terms Related to Computer Based Training (CBT)
-
