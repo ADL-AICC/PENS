@@ -1,4 +1,4 @@
-8 October 2016
+11 October 2016
 PENS v2.0.0 _**DRAFT**_
 
 DOCUMENT No. CMI010
@@ -9,17 +9,27 @@ DOCUMENT No. CMI010
 	 _Proposed_ RELEASE DATE 2017-March-15  
     Based on Revision 1.0a released 2006-March-15
 
+FORMATTING NOTES:
+
+This document is formatted using
+[Markdown](http://daringfireball.net/projects/markdown/). The document relies
+on features of GitHub Flavored Markdown ("GFM") as described at:
+<https://guides.github.com/features/mastering-markdown/#GitHub-flavored-markdown>.
+For the most accurate rendering and to avoid potential misinterpretations due
+to formatting discrepancies, please view the documentation on GitHub or use a
+rendering engine supporting GFM.
+
 THIS DOCUMENT IS CONTROLLED BY:
 
     cmi5 Workgroup, as successor to AICC CMI Subcommittee
 
     ALL REVISIONS SHALL BE APPROVED BY THE ABOVE ORGANIZATION PRIOR TO RELEASE.
-
+    
 POINT OF CONTACT:
 
-    Tom King  
-    cmi5 PENS Workgroup Lead  
-    <mailto:tking@onpointlearning.com>  
+Tom King  
+cmi5 PENS Workgroup Lead  
+<tking@onpointlearning.com>
  
 FILED UNDER: <https://github.com/AICC/PENS_Spec_Current>
 
@@ -336,7 +346,7 @@ workflow to transfer and import a content package.
 * Suggested notification mechanism binding:  HTTP-GET or HTTP-POST of
 name-value pairs (see Appendix A, "Binding of PENS Message to a URI").
 
->NOTE:  
+>NOTE:
 >According to RFC 2616 (June 1999), section 3.2.1, "The HTTP protocol does not
 >place any a priori limit on the length of a URI. Servers MUST be able to
 >handle the URI of any resource they serve, and SHOULD be able to handle URIs
@@ -357,7 +367,7 @@ staging server. The Client shall be capable of specifying a URI that uses HTTP,
 or HTTPS (secure HTTP) protocols. The Client may optionally support specifying
 FTP and FTPS (secure FTP) protocols and the related access credentials.
 
->NOTE:  
+>NOTE:
 >It is assumed that the particular configuration of the staging server may be
 >determined by a third party and therefore is not controlled by the content
 >developer (Client). It is further assumed that if content is staged on the
@@ -412,7 +422,7 @@ URL (an HTTP site or FTP site) from where it can be collected. The Target
 System that may ultimately retrieve the client's content package is typically a
 CMS, LMS or LCMS product.
 
->NOTE:   
+>NOTE:
 >The Client may use FTP or other mechanisms to transfer content to a staging
 >location, yet specify an HTTP URI equivalent as the package-url for retrieval.
 >There is no requirement that the retrieval protocol must match the method used
@@ -436,7 +446,7 @@ the PENS message. See 6.3, Response and Error Messages.) This response simply
 acknowledges that the PENS collect command was understood; it does not imply
 that processing to actually retrieve the package has commenced.
 
->NOTE:   
+>NOTE:
 >In another scenario, the Client System could open a browser window to send the
 >PENS message, and the HTTP response from the Target System would be returned
 >to there.
@@ -468,7 +478,7 @@ The recipient system will proceed with internal processing, such as opening the
 package, approving the content for release, listing the new content in a
 catalog, staging the content on a deployment server, etc.
 
->NOTE:  
+>NOTE:
 >Internal processing phases, workflow and alert triggers are
 >implementation-specific and are outside the scope of this specification.
 >However, the ‘vendor-data' may supply useful hints from the content provider
@@ -776,7 +786,7 @@ Error codes are integers represented as character strings, in the range of 0 to
 use in future editions of the PENS specification. Error codes with numbers
 10000 and above are reserved for implementation-defined error messages. 
 
->NOTE:  
+>NOTE:
 >The error code numbering scheme was established such that PENS codes start at
 >1000 to avoid collision with established error codes for underlying protocols
 >(such as 400 series HTTP error codes). These underlying codes shall be used
@@ -889,7 +899,17 @@ message element values, properly URI-encoded, are shown in the table below.
 | `alerts`                  | `alerts=mailto%3Aname%40domain.com`                                        | 6.2.16      |
 | `vendor-data`             | `vendor-data=preview-mode%3Ainstructor`                                    | 6.2.17      |
 
->NOTE:  
+>NOTE:
+>For the URI binding, the best practice is to use HTTP POST to issue the PENS
+>message. Use of POST avoids a potential issue with two query separators (“?”)
+>in the PENS message URI when the target system URL itself uses the format--  
+>  `<scheme>://<authority><path>?<query>`  
+>(example: Target System URL is
+>`http://acmelearning.lms.com?partition=staging1`).
+
+  &nbsp;  
+
+>NOTE:
 >For cases when either the alert or the receipt value specifies the `mailto:`
 >protocol the following best practice is recommended for the corresponding
 >return command message in email format.
