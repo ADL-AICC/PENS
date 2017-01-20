@@ -1,4 +1,4 @@
-11 October 2016
+19 January 2017
 PENS v2.0.0 _**DRAFT**_
 
 DOCUMENT No. CMI010
@@ -56,18 +56,12 @@ LCMS, LMS, notification service, package exchange, PENS, SCORM, xAPI.
 
 #### Revision Notes
 
-The PEN 2.0.0 revision focuses on four goals:
+The PEN 2.0.0 revision focuses on two areas:
 
-1. **Package format updates**: The addition of contemporary package formats
-such as xAPI and cmi5.
-2. **Batch or multi-package processing**: Streamlining for the transfer and
-notification processing of multiple packages.
-3. **Permissions and security**: More contemporary approaches to permissions,
-such as OAuth. Explicitly indicated preference for HTTPS in lieu of HTTP, and
-for SFTP in lieu of FTP.
-4. **Mobile-enabled alerts and notifications**: Enabling modern mobile alerts
-and notifications such as SMS, Apple Push Notification Services (APNS),
-Firebase Cloud Messaging (FCM), and Google Cloud Messaging (GCM).
+1. **Package formats**: Add contemporary package formats such as xAPI and cmi5.
+Leverage existing practices where possible.
+2. **Transport security**: Where possible, either require or indicate a preference
+for encrypted transport; HTTPS in lieu of HTTP, and SFTP in lieu of FTP.
 
 ### Introduction
 
