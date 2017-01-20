@@ -133,8 +133,9 @@ recipient to remove, replace, or update existing packages or elements of
 packages. PENS provides a contact URI (e.g., email address) for the recipient
 to contact the requestor, but PENS does not prescribe a specific workflow for
 processing of the transferred package. PENS does not require notifications to
-the requestor, other than the specific obligatory confirmation. For
-illustrative purposes, consider a courier service as a conceptual model for
+the requestor, other than the specific obligatory confirmation.
+
+For illustrative purposes, consider a courier service as a conceptual model for
 PENS. Two parties may use the courier service as a means of requesting pick-up,
 performing transfer, and confirming delivery. However, it is not incumbent on
 the courier to enforce particular post-processing by the recipient. The
@@ -176,9 +177,10 @@ transport of e-learning content between content publishing systems and systems
 for the delivery of e-learning such as a learning management system (LMS). This
 specification describes a notification scheme that is a communication between
 the content publishing (or authoring) system and the server managing delivery.
-It includes data elements to identify the package format and location. The
-specification does not specify how the systems must behave after the package is
-transferred. The scope is specifically constrained to the notification request,
+It includes data elements to identify the package format and location.
+
+The specification does not specify how the systems must behave after the package
+is transferred. The scope is specifically constrained to the notification request,
 package transfer and related responses. Specifically outside the scope of this
 specification are mechanisms for deployment of content packages, content
 management, version control, publication or revocation of content. The
@@ -1155,4 +1157,3 @@ Conceptual end of the stages of communication.
 [A2]  SCORM – <http://www.adlnet.org>
 
 [A3]  AICC CRS002, Glossary of Terms Related to Computer Based Training (CBT)
-
